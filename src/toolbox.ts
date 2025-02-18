@@ -603,6 +603,22 @@ export const toolbox = {
         },
         {
           kind: "block",
+          type: "whenPlayerTouchInstance"
+        },
+        {
+          kind: "block",
+          type: "whenPlayerTouchParent"
+        },
+        {
+          kind: "block",
+          type: "whenParentClicked"
+        },
+        {
+          kind: "block",
+          type: "GetValueFromLeaderstats"
+        },
+        {
+          kind: "block",
           type: "instance_set_value",
           inputs: {
             NAME: {
@@ -618,6 +634,18 @@ export const toolbox = {
         {
           kind: "block",
           type: "whenPlayerConnect"
+        },
+        {
+          kind: "block",
+          type: "SetLeaderboardValue"
+        },
+        {
+          kind: "block",
+          type: "Destroy"
+        },
+        {
+          kind: "block",
+          type: "Clone"
         },
         {
           kind: "block",
