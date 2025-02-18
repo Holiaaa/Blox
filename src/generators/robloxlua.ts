@@ -145,6 +145,62 @@ forBlock['GetValue'] = function(block: Blockly.Block,
   return [code, Order.NONE];
 }
 
+forBlock['whenPlayerTouchInstance'] = function(block: Blockly.Block,
+  generator: Blockly.CodeGenerator) {
+  const variable_player = generator.getVariableName(block.getFieldValue('PLAYER'));
+  const variable_instance = generator.getVariableName(block.getFieldValue('INSTANCE'));
+  const statement_name = generator.statementToCode(block, 'NAME');
+
+  const code = `${variable_instance}.Touched:Connect(function(hit)\n local ${variable_player} = game.Players:GetPlayerFromCharacter(hit.Parent)\n if player and player.Character and hit == player.Character.PrimaryPart then\n${statement_name}\n end\nend)`;
+  return code;
+}
+
+forBlock['whenPlayerTouchParent'] = function(block: Blockly.Block,
+  generator: Blockly.CodeGenerator) {
+  const variable_player = generator.getVariableName(block.getFieldValue('PLAYER'));
+  const statement_name = generator.statementToCode(block, 'NAME');
+
+  const code = `script.Parent.Touched:Connect(function(hit)\n local ${variable_player} = game.Players:GetPlayerFromCharacter(hit.Parent)\n if player and player.Character and hit == player.Character.PrimaryPart then\n${statement_name}\n end\nend)`;
+  return code;
+}
+
+forBlock['whenParentClicked'] = function(block: Blockly.Block,
+  generator: Blockly.CodeGenerator) {
+  const variable_player = generator.getVariableName(block.getFieldValue('PLAYER'));
+  const statement_name = generator.statementToCode(block, 'NAME');
+  const code = `script.Parent:FindFirstChild("ClickDetector").MouseClick:Connect(function(${variable_player})\n${statement_name}end)`;
+  return code;
+}
+
+forBlock['GetValueFromLeaderstats'] = function(block: Blockly.Block,
+  generator: Blockly.CodeGenerator) {
+  const text_name = block.getFieldValue('NAME');
+  const code = `player.leaderstats.${text_name}.Value`;
+  return [code, Order.NONE];
+}
+
+forBlock['SetLeaderboardValue'] = function(block: Blockly.Block,
+  generator: Blockly.CodeGenerator) {
+  const text_name = block.getFieldValue('NAME');
+  const value_name = generator.valueToCode(block, 'NAME', Order.ATOMIC);
+  const code = `player.leaderstats.${text_name}.Value = ${value_name}\n`;
+  return code;
+}
+
+forBlock['Destroy'] = function(block: Blockly.Block,
+  generator: Blockly.CodeGenerator) {
+  const variable_name = generator.getVariableName(block.getFieldValue('NAME'));
+  const code = `${variable_name}:Destroy()\n`;
+  return code;
+}
+
+forBlock['Clone'] = function(block: Blockly.Block,
+  generator: Blockly.CodeGenerator) {
+  const variable_name = generator.getVariableName(block.getFieldValue('NAME'));
+  const code = `${variable_name}:Clone()\n`;
+  return code;
+}
+
 /*forBlock['add_text'] = function (
   block: Blockly.Block,
   generator: Blockly.CodeGenerator,
