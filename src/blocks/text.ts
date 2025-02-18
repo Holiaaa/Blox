@@ -352,8 +352,156 @@ const instance_get_value = {
   "output": null,
   "colour": 225
 }
-                    
 
+const whenPlayerTouchInstance = {
+  "type": "whenPlayerTouchInstance",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "when %1 touch %2 %3",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "PLAYER",
+      "variable": "player"
+    },
+    {
+      "type": "field_variable",
+      "name": "INSTANCE",
+      "variable": "instance"
+    },
+    {
+      "type": "input_statement",
+      "name": "NAME"
+    }
+  ],
+  "colour": 60,
+  "inputsInline": true
+}
+                      
+const whenPlayerTouchParent = {
+  "type": "whenPlayerTouchParent",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "when %1 touch parent %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "PLAYER",
+      "variable": "player"
+    },
+    {
+      "type": "input_statement",
+      "name": "NAME"
+    }
+  ],
+  "colour": 60,
+  "inputsInline": true
+}
+                    
+const whenParentClicked = {
+  "type": "whenParentClicked",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "when %1 click on parent %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "PLAYER",
+      "variable": "player"
+    },
+    {
+      "type": "input_statement",
+      "name": "NAME"
+    }
+  ],
+  "colour": 60,
+  "inputsInline": true
+}
+                    
+const GetValueFromLeaderstats = {
+  "type": "GetValueFromLeaderstats",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "Get value from Leaderstats  %1 %2",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "NAME",
+      "text": "coins"
+    },
+    {
+      "type": "input_dummy",
+      "name": "NAME"
+    }
+  ],
+  "output": null,
+  "colour": 225
+}
+
+const SetLeaderboardValue = {
+  "type": "SetLeaderboardValue",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "Set leaderboard %1 value %2",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "NAME",
+      "text": "coin"
+    },
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "Number"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 225
+}
+                    
+const destroy = {
+  "type": "Destroy",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "Destroy %1 %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "NAME",
+      "variable": "instance"
+    },
+    {
+      "type": "input_dummy",
+      "name": "NAME"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 225
+}
+
+const clone = {
+  "type": "Clone",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "Clone %1 %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "NAME",
+      "variable": "instance"
+    },
+    {
+      "type": "input_dummy",
+      "name": "NAME"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 225
+}
+                    
 // Create the block definitions for the JSON-only blocks.
 // This does not register their definitions with Blockly.
 // This file has no side effects!
@@ -371,7 +519,14 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   instance_set_value,
   instance_get_name,
   instance_get_value,
+  GetValueFromLeaderstats,
+  SetLeaderboardValue,
   whenPlayerConnect,
+  whenPlayerTouchInstance,
+  whenParentClicked,
+  whenPlayerTouchParent,
   wait,
+  destroy,
+  clone,
   vector3
 ]);
