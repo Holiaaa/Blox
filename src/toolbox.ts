@@ -611,6 +611,18 @@ export const toolbox = {
         },
         {
           kind: "block",
+          type: "GetService"
+        },
+        {
+          kind: "block",
+          type: "workspace"
+        },
+        {
+          kind: "block",
+          type: "waitforchild"
+        },
+        {
+          kind: "block",
           type: "whenParentClicked"
         },
         {
