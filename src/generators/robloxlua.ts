@@ -222,6 +222,18 @@ forBlock['GetService'] = function(block: Blockly.Block, generator: Blockly.CodeG
   return [code, Order.NONE];
 };
 
+forBlock['playAnimationID'] = function(block: Blockly.Block, generator: Blockly.CodeGenerator) {
+  const number_animationid = block.getFieldValue('ID');
+  const code = `local anim = Instance.new("Animation")\nanim.AnimationId = "rbxassetid://${number_animationid}"\nlocal animTrack = player.Character.Humanoid:WaitForChild("Animator"):LoadAnimation(anim)\nanimTrack:Play()\n`;
+  return code;
+}
+
+forBlock['isa'] = function(block: Blockly.Block, generator: Blockly.CodeGenerator) {
+  const variable_instance = generator.getVariableName(block.getFieldValue('INSTANCE'));
+  const code = `${variable_instance}.Anchored = true`;
+  return code;
+}
+
 
 /*forBlock['add_text'] = function (
   block: Blockly.Block,
