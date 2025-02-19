@@ -571,8 +571,49 @@ const getservice = {
   "output": null,
   "colour": 225
 }
+
+const playAnimationID = {
+  "type": "playAnimationID",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "PlayAnimationID %1 %2",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "ID",
+      "text": "ID"
+    },
+    {
+      "type": "input_dummy",
+      "name": "playanimation"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 225
+}                   
                     
-                                
+                    
+const instance_set_anchored = {
+  "type": "isa",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "Set Instance %1 anchored %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "INSTANCE",
+      "variable": "instance"
+    },
+    {
+      "type": "input_dummy",
+      "name": "NAME"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 225
+}
 // Create the block definitions for the JSON-only blocks.
 // This does not register their definitions with Blockly.
 // This file has no side effects!
@@ -588,12 +629,14 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   instance_set_color,
   instance_set_color_random,
   instance_set_value,
+  instance_set_anchored,
   instance_get_name,
   instance_get_value,
   GetValueFromLeaderstats,
   SetLeaderboardValue,
   whenPlayerConnect,
   whenPlayerTouchInstance,
+  playAnimationID,
   whenParentClicked,
   whenPlayerTouchParent,
   wait,
