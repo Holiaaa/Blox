@@ -1,6 +1,6 @@
 {
   "name": "blox",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "make roblox games without coding!",
   "main": "index.js",
   "private": true,
