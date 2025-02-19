@@ -21,8 +21,6 @@ const print = {
   previousStatement: null,
   nextStatement: null,
   colour: 165,
-  tooltip: '',
-  helpUrl: '',
 };
 
 const new_instance = {
@@ -497,11 +495,84 @@ const clone = {
       "name": "NAME"
     }
   ],
-  "previousStatement": null,
-  "nextStatement": null,
+  "output": null,
   "colour": 225
 }
                     
+
+const workspace = {
+  "type": "workspace",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "Workspace %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "NAME"
+    }
+  ],
+  "output": null,
+  "colour": 225
+}
+
+const waitforchild = {
+  "type": "waitforchild",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "%1 WaitForChild %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "INSTANCE",
+      "variable": "instance"
+    },
+    {
+      "type": "input_value",
+      "name": "NAME"
+    }
+  ],
+  "output": null,
+  "colour": 225
+}
+                    
+const getservice = {
+  "type": "GetService",
+  "tooltip": "",
+  "helpUrl": "",
+  "message0": "Get Service %1 %2",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "SERVICE",
+      "options": [
+        [
+          "ReplicatedStorage",
+          "ReplicatedStorage"
+        ],
+        [
+          "Players",
+          "Players"
+        ],
+        [
+          "ServerScriptService",
+          "ServerScriptService"
+        ],
+        [
+          "ReplicatedFirst",
+          "ReplicatedFirst"
+        ]
+      ]
+    },
+    {
+      "type": "input_dummy",
+      "name": "NAME"
+    }
+  ],
+  "output": null,
+  "colour": 225
+}
+                    
+                                
 // Create the block definitions for the JSON-only blocks.
 // This does not register their definitions with Blockly.
 // This file has no side effects!
@@ -526,7 +597,10 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   whenParentClicked,
   whenPlayerTouchParent,
   wait,
+  workspace,
+  getservice,
   destroy,
+  waitforchild,
   clone,
   vector3
 ]);
