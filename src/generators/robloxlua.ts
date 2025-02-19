@@ -230,7 +230,7 @@ forBlock['playAnimationID'] = function(block: Blockly.Block, generator: Blockly.
 
 forBlock['isa'] = function(block: Blockly.Block, generator: Blockly.CodeGenerator) {
   const variable_instance = generator.getVariableName(block.getFieldValue('INSTANCE'));
-  const code = `${variable_instance}.Anchored = true`;
+  const code = `${variable_instance}.Anchored = true\n`;
   return code;
 }
 
