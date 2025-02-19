@@ -197,9 +197,31 @@ forBlock['Destroy'] = function(block: Blockly.Block,
 forBlock['Clone'] = function(block: Blockly.Block,
   generator: Blockly.CodeGenerator) {
   const variable_name = generator.getVariableName(block.getFieldValue('NAME'));
-  const code = `${variable_name}:Clone()\n`;
-  return code;
+  const code = `${variable_name}:Clone()`;
+  return [code, Order.NONE];
 }
+
+forBlock['workspace'] = function(block: Blockly.Block,
+  generator: Blockly.CodeGenerator) {
+  const value_name = generator.valueToCode(block, 'NAME', Order.ATOMIC);
+  const code = `workspace`;
+  return [code, Order.NONE];
+}
+
+forBlock['waitforchild'] = function(block: Blockly.Block,
+  generator: Blockly.CodeGenerator) {
+  const variable_instance = generator.getVariableName(block.getFieldValue('INSTANCE'));
+  const value_name = generator.valueToCode(block, 'NAME', Order.ATOMIC);
+  const code = `${variable_instance}:WaitForChild(${value_name})`;
+  return [code, Order.NONE];
+}
+
+forBlock['GetService'] = function(block: Blockly.Block, generator: Blockly.CodeGenerator) {
+  const dropdown_service = block.getFieldValue('SERVICE');  // Get the selected service name (as a string)
+  const code = `game:GetService("${dropdown_service}")`;  // Correctly format the Lua code
+  return [code, Order.NONE];
+};
+
 
 /*forBlock['add_text'] = function (
   block: Blockly.Block,
